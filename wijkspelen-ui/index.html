@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge Middelburg - Wijkspelen.nl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/design-system.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="navbar__brand" onclick="showPage('home')">
+      <div class="navbar__brand-icon">⚔️</div>
+      <span>Challenge Middelburg</span>
+    </a>
+
+    <ul class="navbar__nav">
+      <li><a href="#" class="navbar__link active" data-page="home" onclick="showPage('home')">🏠 Home</a></li>
+      <li><a href="#" class="navbar__link" data-page="challenges" onclick="showPage('challenges')">🎯 Challenges</a></li>
+      <li><a href="#" class="navbar__link" data-page="map" onclick="showPage('map')">🗺️ Kaart</a></li>
+      <li><a href="#" class="navbar__link" data-page="leaderboard" onclick="showPage('leaderboard')">🏆 Ranglijst</a></li>
+      <li><a href="#" class="navbar__link" data-page="shop" onclick="showPage('shop')">🛒 Shop</a></li>
+    </ul>
+
+    <div class="navbar__actions">
+      <div class="navbar__coins">1.250</div>
+      <div class="navbar__avatar" onclick="showPage('profile')" title="Mijn Profiel">
+        <span style="font-size:20px;line-height:36px;display:block;text-align:center">🧙</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE BOTTOM NAV ============ -->
+  <nav class="bottom-nav">
+    <ul class="bottom-nav__items">
+      <li><a href="#" class="bottom-nav__link active" data-page="home" onclick="showPage('home')"><span class="icon">🏠</span>Home</a></li>
+      <li><a href="#" class="bottom-nav__link" data-page="challenges" onclick="showPage('challenges')"><span class="icon">🎯</span>Challenges</a></li>
+      <li><a href="#" class="bottom-nav__link" data-page="map" onclick="showPage('map')"><span class="icon">🗺️</span>Kaart</a></li>
+      <li><a href="#" class="bottom-nav__link" data-page="leaderboard" onclick="showPage('leaderboard')"><span class="icon">🏆</span>Ranglijst</a></li>
+      <li><a href="#" class="bottom-nav__link" data-page="profile" onclick="showPage('profile')"><span class="icon">👤</span>Profiel</a></li>
+    </ul>
+  </nav>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main class="main-content">
+
+    <!-- ======== HOME PAGE ======== -->
+    <div class="page active" id="page-home">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero__bg">
+          <div class="confetti" id="confetti"></div>
+          <div class="hero__clouds">
+            <div class="cloud cloud--1">☁️</div>
+            <div class="cloud cloud--2">☁️</div>
+            <div class="cloud cloud--3">☁️</div>
+          </div>
+        </div>
+        <div class="hero__content container">
+          <div class="hero__map-preview">
+            <div class="hero__map-pins">
+              <span class="map-pin" style="top: 20%; left: 30%;">🏀</span>
+              <span class="map-pin" style="top: 40%; left: 60%;">⭐</span>
+              <span class="map-pin" style="top: 60%; left: 25%;">🎨</span>
+              <span class="map-pin" style="top: 35%; left: 75%;">🧗</span>
+              <span class="map-pin" style="top: 70%; left: 55%;">⚽</span>
+            </div>
+          </div>
+          <h1 class="hero__title">Ontdek Middelburg</h1>
+          <p class="hero__subtitle">op een hele nieuwe manier</p>
+          <p class="hero__desc">Doe uitdagende challenges door de wijk, verdien XP en unlock unieke characters!</p>
+          <div class="hero__actions">
+            <button class="btn btn-secondary btn-lg" onclick="showPage('challenges')">🎯 Bekijk Challenges</button>
+            <button class="btn btn-ghost btn-lg" onclick="showPage('map')">🚀 Start Nu</button>
+          </div>
+          <div class="hero__stats">
+            <div class="hero__stat">🏆 <strong>10</strong> Challenges</div>
+            <div class="hero__stat">👥 <strong>4</strong> Spelers</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission of the Day -->
+      <section class="section container">
+        <div class="mission-card">
+          <div class="mission-card__icon">🏀</div>
+          <div class="mission-card__content">
+            <span class="mission-card__label">Missie van de Dag</span>
+            <h3 class="mission-card__title">Basketbal Battle</h3>
+            <p class="mission-card__desc">Speel een potje basketbal en scoor minimaal 5 punten. Daag je vrienden uit!</p>
+          </div>
+          <div class="mission-card__reward">
+            <span class="badge badge-xp">+80 XP</span>
+            <span class="mission-card__timer">⏱️ Nog 23u 48m</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it Works -->
+      <section class="section container">
+        <div class="section__header">
+          <h2 class="section__title">Hoe werkt het?</h2>
+          <p class="section__subtitle">In 4 simpele stappen ben je klaar om Middelburg te verkennen</p>
+        </div>
+        <div class="grid grid-4">
+          <div class="step-card">
+            <div class="step-card__number">1</div>
+            <div class="step-card__icon">👤</div>
+            <h4 class="step-card__title">Account</h4>
+            <p class="step-card__desc">Maak je account aan en kies je character</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">2</div>
+            <div class="step-card__icon">🗺️</div>
+            <h4 class="step-card__title">Kaart</h4>
+            <p class="step-card__desc">Bekijk de kaart en vind challenges bij jou in de buurt</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">3</div>
+            <div class="step-card__icon">🏃</div>
+            <h4 class="step-card__title">Outdoor</h4>
+            <p class="step-card__desc">Ga naar buiten en voltooi de uitdagingen</p>
+          </div>
+          <div class="step-card">
+            <div class="step-card__number">4</div>
+            <div class="step-card__icon">🧙</div>
+            <h4 class="step-card__title">Character</h4>
+            <p class="step-card__desc">Verdien XP, level up en unlock unieke characters</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Popular Challenges -->
+      <section class="section container">
+        <div class="section__header" style="display: flex; justify-content: space-between; align-items: center;">
+          <h2 class="section__title" style="margin-bottom: 0;">Populaire Challenges</h2>
+          <a href="#" class="btn btn-outline btn-sm" onclick="showPage('challenges')">Bekijk alle →</a>
+        </div>
+        <div class="grid grid-3" style="margin-top: var(--space-lg);">
+          <div class="challenge-card">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #FF6B35, #FF8F66);">
+              <span class="challenge-card__emoji">🎨</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Speelbox: Straatkunst</h4>
+              <div class="challenge-card__meta">
+                <span class="badge badge-medium">Gemiddeld</span>
+                <span class="badge badge-xp">+200 XP</span>
+              </div>
+            </div>
+          </div>
+          <div class="challenge-card">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #00B894, #55E6C1);">
+              <span class="challenge-card__emoji">🎪</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Speeltuin Ontdekker</h4>
+              <div class="challenge-card__meta">
+                <span class="badge badge-easy">Makkelijk</span>
+                <span class="badge badge-xp">+60 XP</span>
+              </div>
+            </div>
+          </div>
+          <div class="challenge-card">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE);">
+              <span class="challenge-card__emoji">⚽</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Cruyff Court Kampioen</h4>
+              <div class="challenge-card__meta">
+                <span class="badge badge-medium">Makkelijk</span>
+                <span class="badge badge-xp">+100 XP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======== CHALLENGES PAGE ======== -->
+    <div class="page" id="page-challenges">
+      <section class="section container">
+        <div class="section__header">
+          <h2 class="section__title">🎯 Challenges</h2>
+          <p class="section__subtitle">Ontdek alle uitdagingen in Middelburg</p>
+        </div>
+
+        <!-- Filter Chips -->
+        <div class="filter-chips">
+          <button class="chip chip--active">Alle</button>
+          <button class="chip">Sport</button>
+          <button class="chip">Creatief</button>
+          <button class="chip">Ontdekken</button>
+          <button class="chip">Sociaal</button>
+        </div>
+
+        <div class="grid grid-3" style="margin-top: var(--space-xl);">
+          <div class="challenge-card challenge-card--full">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #FF6B35, #FF8F66);">
+              <span class="challenge-card__emoji">🏀</span>
+              <span class="badge badge-medium" style="position:absolute;top:12px;right:12px;">Sport</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Basketbal Battle</h4>
+              <p class="challenge-card__text">Speel een potje basketbal en scoor minimaal 5 punten.</p>
+              <div class="challenge-card__meta">
+                <span class="badge badge-easy">Makkelijk</span>
+                <span class="badge badge-xp">+20 XP</span>
+              </div>
+              <div class="challenge-card__footer">
+                <span class="challenge-card__location">📍 Sportpark Zuid</span>
+                <button class="btn btn-primary btn-sm">Start →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge-card challenge-card--full">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #A29BFE, #6C5CE7);">
+              <span class="challenge-card__emoji">🧠</span>
+              <span class="badge badge-epic" style="position:absolute;top:12px;right:12px;">Creatief</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Quizze</h4>
+              <p class="challenge-card__text">Beantwoord vragen over de geschiedenis van Middelburg.</p>
+              <div class="challenge-card__meta">
+                <span class="badge badge-medium">Gemiddeld</span>
+                <span class="badge badge-xp">+30 XP</span>
+              </div>
+              <div class="challenge-card__footer">
+                <span class="challenge-card__location">📍 Centrum</span>
+                <button class="btn btn-primary btn-sm">Start →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge-card challenge-card--full">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #00B894, #55E6C1);">
+              <span class="challenge-card__emoji">🧗</span>
+              <span class="badge badge-uncommon" style="position:absolute;top:12px;right:12px;">Sport</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Klimrek Koning</h4>
+              <p class="challenge-card__text">Klim zo snel mogelijk het klimrek op en weer af.</p>
+              <div class="challenge-card__meta">
+                <span class="badge badge-easy">Makkelijk</span>
+                <span class="badge badge-xp">+16 XP</span>
+              </div>
+              <div class="challenge-card__footer">
+                <span class="challenge-card__location">📍 Speeltuin Oost</span>
+                <button class="btn btn-primary btn-sm">Start →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge-card challenge-card--full">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #FDCB6E, #F0932B);">
+              <span class="challenge-card__emoji">⚽</span>
+              <span class="badge badge-legendary" style="position:absolute;top:12px;right:12px;">Sport</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Panna Skills</h4>
+              <p class="challenge-card__text">Laat je voetbalskills zien op het Cruyff Court.</p>
+              <div class="challenge-card__meta">
+                <span class="badge badge-easy">Makkelijk</span>
+                <span class="badge badge-xp">+10 XP</span>
+              </div>
+              <div class="challenge-card__footer">
+                <span class="challenge-card__location">📍 Cruyff Court</span>
+                <button class="btn btn-primary btn-sm">Start →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge-card challenge-card--full">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">
+              <span class="challenge-card__emoji">🎨</span>
+              <span class="badge badge-rare" style="position:absolute;top:12px;right:12px;">Creatief</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Speelbox: Straatkunst</h4>
+              <p class="challenge-card__text">Maak een stoepkrijtkunstwerk bij de speeltuin.</p>
+              <div class="challenge-card__meta">
+                <span class="badge badge-medium">Gemiddeld</span>
+                <span class="badge badge-xp">+200 XP</span>
+              </div>
+              <div class="challenge-card__footer">
+                <span class="challenge-card__location">📍 Speelplein West</span>
+                <button class="btn btn-primary btn-sm">Start →</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="challenge-card challenge-card--full">
+            <div class="challenge-card__image" style="background: linear-gradient(135deg, #FD79A8, #E84393);">
+              <span class="challenge-card__emoji">🎪</span>
+              <span class="badge badge-uncommon" style="position:absolute;top:12px;right:12px;">Ontdekken</span>
+            </div>
+            <div class="challenge-card__content">
+              <h4>Speeltuin Ontdekker</h4>
+              <p class="challenge-card__text">Bezoek 3 verschillende speeltuinen in de wijk.</p>
+              <div class="challenge-card__meta">
+                <span class="badge badge-easy">Makkelijk</span>
+                <span class="badge badge-xp">+60 XP</span>
+              </div>
+              <div class="challenge-card__footer">
+                <span class="challenge-card__location">📍 Diverse locaties</span>
+                <button class="btn btn-primary btn-sm">Start →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======== MAP PAGE ======== -->
+    <div class="page" id="page-map">
+      <section class="map-page">
+        <div class="map-container">
+          <div class="map-illustration">
+            <!-- Illustrated cartoon map -->
+            <svg viewBox="0 0 800 600" class="map-svg">
+              <!-- Water -->
+              <path d="M0,100 Q200,80 400,120 Q600,160 800,100 L800,0 L0,0 Z" fill="#74B9FF" opacity="0.3"/>
+              <path d="M0,580 Q200,560 400,590 Q600,570 800,580 L800,600 L0,600 Z" fill="#74B9FF" opacity="0.2"/>
+
+              <!-- Green areas -->
+              <ellipse cx="150" cy="300" rx="120" ry="80" fill="#55E6C1" opacity="0.2"/>
+              <ellipse cx="500" cy="200" rx="100" ry="60" fill="#55E6C1" opacity="0.15"/>
+              <ellipse cx="650" cy="400" rx="130" ry="90" fill="#55E6C1" opacity="0.2"/>
+
+              <!-- Roads -->
+              <path d="M100,150 Q300,200 500,180 Q700,160 750,250" stroke="#DFE6E9" stroke-width="12" fill="none" stroke-linecap="round"/>
+              <path d="M50,350 Q200,300 400,350 Q600,400 750,380" stroke="#DFE6E9" stroke-width="12" fill="none" stroke-linecap="round"/>
+              <path d="M300,50 Q350,200 300,400 Q280,500 350,580" stroke="#DFE6E9" stroke-width="10" fill="none" stroke-linecap="round"/>
+              <path d="M550,80 Q500,200 550,350 Q580,450 520,550" stroke="#DFE6E9" stroke-width="10" fill="none" stroke-linecap="round"/>
+
+              <!-- Buildings (cartoon style) -->
+              <rect x="180" y="160" width="40" height="50" rx="4" fill="#FFEAA7" stroke="#FDCB6E" stroke-width="2"/>
+              <rect x="230" y="170" width="35" height="40" rx="4" fill="#FAB1A0" stroke="#E17055" stroke-width="2"/>
+              <rect x="420" y="140" width="45" height="55" rx="4" fill="#DFE6E9" stroke="#B2BEC3" stroke-width="2"/>
+              <rect x="475" y="145" width="38" height="45" rx="4" fill="#FFEAA7" stroke="#FDCB6E" stroke-width="2"/>
+              <rect x="600" y="250" width="50" height="60" rx="4" fill="#A29BFE" stroke="#6C5CE7" stroke-width="2"/>
+              <rect x="660" y="260" width="40" height="45" rx="4" fill="#FAB1A0" stroke="#E17055" stroke-width="2"/>
+              <rect x="120" y="380" width="42" height="48" rx="4" fill="#74B9FF" stroke="#0984E3" stroke-width="2"/>
+              <rect x="170" y="390" width="35" height="38" rx="4" fill="#FFEAA7" stroke="#FDCB6E" stroke-width="2"/>
+
+              <!-- Trees -->
+              <circle cx="100" cy="240" r="15" fill="#00B894" opacity="0.6"/>
+              <circle cx="130" cy="250" r="12" fill="#00B894" opacity="0.5"/>
+              <circle cx="350" cy="120" r="18" fill="#00B894" opacity="0.6"/>
+              <circle cx="380" cy="130" r="14" fill="#00B894" opacity="0.5"/>
+              <circle cx="700" cy="320" r="16" fill="#00B894" opacity="0.6"/>
+              <circle cx="730" cy="330" r="13" fill="#00B894" opacity="0.5"/>
+            </svg>
+
+            <!-- Challenge Pins -->
+            <div class="map-pin-container" style="top: 15%; left: 40%;">
+              <div class="map-pin-marker map-pin-marker--sport">
+                <span>🏀</span>
+              </div>
+              <div class="map-pin-label">
+                <strong>Basketbal Battle</strong>
+                <span class="badge badge-xp badge--tiny">+20 XP</span>
+              </div>
+            </div>
+
+            <div class="map-pin-container" style="top: 40%; left: 25%;">
+              <div class="map-pin-marker map-pin-marker--creative">
+                <span>⭐</span>
+              </div>
+              <div class="map-pin-label">
+                <strong>Quizze</strong>
+                <span class="badge badge-xp badge--tiny">+30 XP</span>
+              </div>
+            </div>
+
+            <div class="map-pin-container" style="top: 35%; left: 65%;">
+              <div class="map-pin-marker map-pin-marker--sport">
+                <span>🧗</span>
+              </div>
+              <div class="map-pin-label">
+                <strong>Klimrek Koning</strong>
+                <span class="badge badge-xp badge--tiny">+16 XP</span>
+              </div>
+            </div>
+
+            <div class="map-pin-container" style="top: 60%; left: 45%;">
+              <div class="map-pin-marker map-pin-marker--sport">
+                <span>⚽</span>
+              </div>
+              <div class="map-pin-label">
+                <strong>Panna Skills</strong>
+                <span class="badge badge-xp badge--tiny">+10 XP</span>
+              </div>
+            </div>
+
+            <div class="map-pin-container" style="top: 50%; left: 80%;">
+              <div class="map-pin-marker map-pin-marker--creative">
+                <span>🎨</span>
+              </div>
+              <div class="map-pin-label">
+                <strong>Straatkunst</strong>
+                <span class="badge badge-xp badge--tiny">+200 XP</span>
+              </div>
+            </div>
+
+            <!-- Map Controls -->
+            <div class="map-controls">
+              <button class="btn btn-icon map-control-btn">+</button>
+              <button class="btn btn-icon map-control-btn">−</button>
+              <button class="btn btn-icon map-control-btn">📍</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nearby Challenges Bottom Panel -->
+        <div class="map-nearby">
+          <h3 class="map-nearby__title">📍 Nearby Challenges</h3>
+          <div class="map-nearby__scroll">
+            <div class="map-nearby__card">
+              <div class="map-nearby__card-img" style="background: linear-gradient(135deg, #FF6B35, #FF8F66);">🏀</div>
+              <div class="map-nearby__card-info">
+                <strong>Basketbal Battle</strong>
+                <div class="map-nearby__card-meta">
+                  <span class="badge badge-xp badge--tiny">+20 XP</span>
+                  <span class="text-muted">150m</span>
+                </div>
+              </div>
+            </div>
+            <div class="map-nearby__card">
+              <div class="map-nearby__card-img" style="background: linear-gradient(135deg, #00B894, #55E6C1);">🧗</div>
+              <div class="map-nearby__card-info">
+                <strong>Klimrek Koning</strong>
+                <div class="map-nearby__card-meta">
+                  <span class="badge badge-xp badge--tiny">+16 XP</span>
+                  <span class="text-muted">320m</span>
+                </div>
+              </div>
+            </div>
+            <div class="map-nearby__card">
+              <div class="map-nearby__card-img" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE);">⚽</div>
+              <div class="map-nearby__card-info">
+                <strong>Panna Skills</strong>
+                <div class="map-nearby__card-meta">
+                  <span class="badge badge-xp badge--tiny">+10 XP</span>
+                  <span class="text-muted">480m</span>
+                </div>
+              </div>
+            </div>
+            <div class="map-nearby__card">
+              <div class="map-nearby__card-img" style="background: linear-gradient(135deg, #74B9FF, #0984E3);">🎨</div>
+              <div class="map-nearby__card-info">
+                <strong>Straatkunst</strong>
+                <div class="map-nearby__card-meta">
+                  <span class="badge badge-xp badge--tiny">+200 XP</span>
+                  <span class="text-muted">650m</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======== LEADERBOARD PAGE ======== -->
+    <div class="page" id="page-leaderboard">
+      <section class="leaderboard-page">
+        <div class="leaderboard-bg"></div>
+        <div class="container">
+          <div class="section__header">
+            <h2 class="section__title">🏆 Ranglijst</h2>
+          </div>
+
+          <!-- Period Filter -->
+          <div class="filter-chips" style="justify-content: center;">
+            <button class="chip chip--active">Alle Tijd</button>
+            <button class="chip">Maand</button>
+            <button class="chip">Week</button>
+            <button class="chip">Vandaag</button>
+          </div>
+
+          <!-- Podium -->
+          <div class="podium">
+            <div class="podium__place podium__place--2">
+              <div class="podium__avatar">
+                <div class="avatar avatar--lg" style="background: linear-gradient(135deg, #74B9FF, #A29BFE); display:flex; align-items:center; justify-content:center; font-size:2rem;">🧑</div>
+                <span class="podium__badge podium__badge--2">2</span>
+              </div>
+              <span class="podium__name">MeesDeJong</span>
+              <span class="podium__level">Niveau 28</span>
+              <span class="podium__xp">14.200 XP</span>
+              <div class="podium__stand podium__stand--2"></div>
+            </div>
+
+            <div class="podium__place podium__place--1">
+              <div class="podium__crown">👑</div>
+              <div class="podium__avatar">
+                <div class="avatar avatar--xl" style="background: linear-gradient(135deg, #FDCB6E, #F0932B); display:flex; align-items:center; justify-content:center; font-size:2.5rem;">👩</div>
+                <span class="podium__badge podium__badge--1">1</span>
+              </div>
+              <span class="podium__name">PuckWagenaar</span>
+              <span class="podium__level">Niveau 30</span>
+              <span class="podium__xp">15.500 XP</span>
+              <div class="podium__stand podium__stand--1"></div>
+            </div>
+
+            <div class="podium__place podium__place--3">
+              <div class="podium__avatar">
+                <div class="avatar avatar--lg" style="background: linear-gradient(135deg, #FD79A8, #E84393); display:flex; align-items:center; justify-content:center; font-size:2rem;">👧</div>
+                <span class="podium__badge podium__badge--3">3</span>
+              </div>
+              <span class="podium__name">FennaVisser</span>
+              <span class="podium__level">Niveau 26</span>
+              <span class="podium__xp">13.800 XP</span>
+              <div class="podium__stand podium__stand--3"></div>
+            </div>
+          </div>
+
+          <!-- Ranking List -->
+          <div class="ranking-list">
+            <div class="ranking-item">
+              <span class="ranking-item__rank">4</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #00B894, #55E6C1); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🧑</div>
+              <div class="ranking-item__info">
+                <strong>DaanBakker</strong>
+                <span class="ranking-item__level">Niveau 25</span>
+              </div>
+              <span class="ranking-item__xp">12.500 XP</span>
+            </div>
+            <div class="ranking-item">
+              <span class="ranking-item__rank">5</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #FD79A8, #E84393); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">👩</div>
+              <div class="ranking-item__info">
+                <strong>LinaKoster</strong>
+                <span class="ranking-item__level">Niveau 24</span>
+              </div>
+              <span class="ranking-item__xp">11.900 XP</span>
+            </div>
+            <div class="ranking-item">
+              <span class="ranking-item__rank">6</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #74B9FF, #0984E3); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🧑</div>
+              <div class="ranking-item__info">
+                <strong>TimoSmit</strong>
+                <span class="ranking-item__level">Niveau 23</span>
+              </div>
+              <span class="ranking-item__xp">10.400 XP</span>
+            </div>
+            <div class="ranking-item">
+              <span class="ranking-item__rank">7</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #A29BFE, #6C5CE7); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">👧</div>
+              <div class="ranking-item__info">
+                <strong>EvaMulder</strong>
+                <span class="ranking-item__level">Niveau 22</span>
+              </div>
+              <span class="ranking-item__xp">9.800 XP</span>
+            </div>
+            <div class="ranking-item">
+              <span class="ranking-item__rank">8</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #FDCB6E, #F0932B); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🧑</div>
+              <div class="ranking-item__info">
+                <strong>LarsJansen</strong>
+                <span class="ranking-item__level">Niveau 21</span>
+              </div>
+              <span class="ranking-item__xp">9.100 XP</span>
+            </div>
+            <div class="ranking-item">
+              <span class="ranking-item__rank">9</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #55E6C1, #00B894); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">👩</div>
+              <div class="ranking-item__info">
+                <strong>SophieGroen</strong>
+                <span class="ranking-item__level">Niveau 20</span>
+              </div>
+              <span class="ranking-item__xp">8.500 XP</span>
+            </div>
+            <div class="ranking-item">
+              <span class="ranking-item__rank">10</span>
+              <div class="avatar avatar--md" style="background: linear-gradient(135deg, #FF6B6B, #EE5A24); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🧑</div>
+              <div class="ranking-item__info">
+                <strong>NoahBos</strong>
+                <span class="ranking-item__level">Niveau 19</span>
+              </div>
+              <span class="ranking-item__xp">7.900 XP</span>
+            </div>
+          </div>
+
+          <!-- Your Position -->
+          <div class="ranking-item ranking-item--you">
+            <span class="ranking-item__rank">4</span>
+            <div class="avatar avatar--md" style="background: linear-gradient(135deg, #6C5CE7, #A29BFE); display:flex; align-items:center; justify-content:center; font-size:1.2rem;">🧙</div>
+            <div class="ranking-item__info">
+              <strong>Speler123</strong>
+              <span class="ranking-item__level">Niveau 22</span>
+            </div>
+            <span class="ranking-item__xp">9.800 XP</span>
+            <span class="ranking-item__label">Jouw Positie</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======== SHOP PAGE ======== -->
+    <div class="page" id="page-shop">
+      <section class="section container">
+        <div class="section__header">
+          <h2 class="section__title">🛒 Rewards Shop</h2>
+          <p class="section__subtitle">Nieuwe items elke 24 uur!</p>
+        </div>
+
+        <!-- Featured Item -->
+        <div class="shop-featured">
+          <div class="shop-featured__badge">⭐ Featured Skin</div>
+          <div class="shop-featured__character">
+            <span style="font-size: 6rem;">🧙‍♂️</span>
+          </div>
+          <div class="shop-featured__info">
+            <h3>Urban Legend</h3>
+            <span class="badge badge-legendary">Legendary</span>
+            <p>Unleash the spirit of the city with this exclusive high-performance outfit.</p>
+            <button class="btn btn-secondary btn-lg">
+              <span>🔓</span> Unlock Now — 🪙 2.500
+            </button>
+          </div>
+        </div>
+
+        <!-- Shop Grid -->
+        <div class="grid grid-3" style="margin-top: var(--space-2xl);">
+          <div class="shop-item">
+            <div class="shop-item__rarity shop-item__rarity--epic">Epic</div>
+            <div class="shop-item__image">
+              <span style="font-size: 4rem;">🚀</span>
+            </div>
+            <div class="shop-item__info">
+              <h4>Neon Glider</h4>
+              <div class="shop-item__price">
+                <span>🪙 1.200</span>
+                <button class="btn btn-primary btn-sm">Bekijk</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-item">
+            <div class="shop-item__rarity shop-item__rarity--rare">Rare</div>
+            <div class="shop-item__image">
+              <span style="font-size: 4rem;">🎉</span>
+            </div>
+            <div class="shop-item__info">
+              <h4>Victory Floss</h4>
+              <div class="shop-item__price">
+                <span>🪙 800</span>
+                <button class="btn btn-primary btn-sm">Bekijk</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-item">
+            <div class="shop-item__rarity shop-item__rarity--uncommon">Uncommon</div>
+            <div class="shop-item__image">
+              <span style="font-size: 4rem;">🧢</span>
+            </div>
+            <div class="shop-item__info">
+              <h4>Bolt Cap</h4>
+              <div class="shop-item__price">
+                <span>🪙 450</span>
+                <button class="btn btn-primary btn-sm">Bekijk</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-item">
+            <div class="shop-item__rarity shop-item__rarity--legendary">Legendary</div>
+            <div class="shop-item__image">
+              <span style="font-size: 4rem;">🐕</span>
+            </div>
+            <div class="shop-item__info">
+              <h4>Cyber Pup</h4>
+              <div class="shop-item__price">
+                <span>🪙 3.000</span>
+                <button class="btn btn-primary btn-sm">Bekijk</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-item">
+            <div class="shop-item__rarity shop-item__rarity--rare">Rare</div>
+            <div class="shop-item__image">
+              <span style="font-size: 4rem;">🎭</span>
+            </div>
+            <div class="shop-item__info">
+              <h4>Street Mask</h4>
+              <div class="shop-item__price">
+                <span>🪙 650</span>
+                <button class="btn btn-primary btn-sm">Bekijk</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="shop-item">
+            <div class="shop-item__rarity shop-item__rarity--epic">Epic</div>
+            <div class="shop-item__image">
+              <span style="font-size: 4rem;">⚡</span>
+            </div>
+            <div class="shop-item__info">
+              <h4>Thunder Trail</h4>
+              <div class="shop-item__price">
+                <span>🪙 1.500</span>
+                <button class="btn btn-primary btn-sm">Bekijk</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ======== PROFILE PAGE ======== -->
+    <div class="page" id="page-profile">
+      <section class="profile-page">
+        <div class="profile-header">
+          <div class="profile-header__bg"></div>
+          <div class="container">
+            <div class="profile-header__content">
+              <div class="profile-avatar-wrapper">
+                <div class="profile-avatar">
+                  <span style="font-size: 4rem;">🧙</span>
+                </div>
+                <div class="profile-avatar__glow"></div>
+              </div>
+              <h2 class="profile-name">Speler123</h2>
+              <p class="profile-title">Pionier van de Wijk</p>
+
+              <!-- Level Progress -->
+              <div class="profile-level">
+                <div class="profile-level__header">
+                  <span>Level 8</span>
+                  <span>70%</span>
+                </div>
+                <div class="progress">
+                  <div class="progress__bar" style="width: 70%"></div>
+                </div>
+                <span class="profile-level__next">Volgende level: 5.000 XP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="container" style="margin-top: calc(-1 * var(--space-xl));">
+          <div class="grid grid-4">
+            <div class="stat-card">
+              <div class="stat-card__icon stat-card__icon--xp">⭐</div>
+              <span class="stat-card__value">3.450</span>
+              <span class="stat-card__label">XP</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__icon stat-card__icon--coins">🪙</div>
+              <span class="stat-card__value">500</span>
+              <span class="stat-card__label">Munten</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__icon stat-card__icon--challenges">✅</div>
+              <span class="stat-card__value">12</span>
+              <span class="stat-card__label">Challenges</span>
+            </div>
+            <div class="stat-card">
+              <div class="stat-card__icon stat-card__icon--friends">👥</div>
+              <span class="stat-card__value">4</span>
+              <span class="stat-card__label">Vrienden</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Characters & Rewards -->
+        <div class="container" style="margin-top: var(--space-xl);">
+          <div class="section__header" style="text-align: left;">
+            <h3>🎭 Karakters & Beloningen</h3>
+          </div>
+          <div class="grid grid-3">
+            <div class="character-card character-card--owned">
+              <div class="character-card__image">
+                <span style="font-size: 3rem;">🧙</span>
+              </div>
+              <span class="character-card__name">Pionier</span>
+              <span class="badge badge-uncommon">Uitgerust</span>
+            </div>
+            <div class="character-card character-card--locked">
+              <div class="character-card__image">
+                <span style="font-size: 3rem;">🧝</span>
+                <div class="character-card__lock">🔒</div>
+              </div>
+              <span class="character-card__name">Magiër</span>
+              <span class="character-card__cost">🪙 800 Munten</span>
+            </div>
+            <div class="character-card character-card--locked">
+              <div class="character-card__image">
+                <span style="font-size: 3rem;">🗡️</span>
+                <div class="character-card__lock">🔒</div>
+              </div>
+              <span class="character-card__name">Ridder</span>
+              <span class="character-card__cost">🪙 1.200 Munten</span>
+            </div>
+            <div class="character-card character-card--locked">
+              <div class="character-card__image">
+                <span style="font-size: 3rem;">🏹</span>
+                <div class="character-card__lock">🔒</div>
+              </div>
+              <span class="character-card__name">Boogschutter</span>
+              <span class="character-card__cost">🪙 1.200 Munten</span>
+            </div>
+            <div class="character-card character-card--locked">
+              <div class="character-card__image">
+                <span style="font-size: 3rem;">🐉</span>
+                <div class="character-card__lock">🔒</div>
+              </div>
+              <span class="character-card__name">Drakentemmer</span>
+              <span class="character-card__cost">🪙 2.500 Munten</span>
+            </div>
+            <div class="character-card character-card--locked">
+              <div class="character-card__image">
+                <span style="font-size: 3rem;">👑</span>
+                <div class="character-card__lock">🔒</div>
+              </div>
+              <span class="character-card__name">Legende</span>
+              <span class="character-card__cost">🪙 5.000 Munten</span>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: var(--space-xl);">
+            <button class="btn btn-primary btn-lg" onclick="showPage('shop')">🛒 Naar de Shop</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__brand">⚔️ Challenge Middelburg</div>
+          <p class="footer__desc">
+            Spelen in de Wijk is een initiatief om kinderen op een leuke manier naar buiten te krijgen.
+            Ontdek de wijk, doe challenges en verdien beloningen!
+          </p>
+        </div>
+        <div>
+          <h4 class="footer__title">Navigatie</h4>
+          <ul class="footer__links">
+            <li><a href="#" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" onclick="showPage('challenges')">Challenges</a></li>
+            <li><a href="#" onclick="showPage('map')">Kaart</a></li>
+            <li><a href="#" onclick="showPage('leaderboard')">Ranglijst</a></li>
+            <li><a href="#" onclick="showPage('shop')">Shop</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Onze Partners</h4>
+          <ul class="footer__links">
+            <li><a href="#">Gemeente Middelburg</a></li>
+            <li><a href="#">HZ University</a></li>
+            <li><a href="#">Skills for Life</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__title">Contact</h4>
+          <ul class="footer__links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Credits & Contact</a></li>
+            <li><a href="#">Wat vind je op deze site?</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>&copy; 2024 wijkspelen.nl. All rights reserved.</span>
+        <div class="footer__partners">
+          <span>Gemeente Middelburg</span>
+          <span>HZ</span>
+          <span>Skills for Life</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
